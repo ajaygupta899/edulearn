@@ -29,7 +29,7 @@ public class UsersController {
     return usersService.getAllUsers();
 }
 
-    @PostMapping("/login")
+    @PostMapping("/signin")
     public ApiResponse login(@RequestBody LoginRequest loginRequest){
     return usersService.login(loginRequest);
     }

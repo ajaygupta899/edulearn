@@ -3,7 +3,7 @@ package com.ajay.edulearn.users;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.Date;
 
 @Data
 @Entity
@@ -27,14 +27,23 @@ public class Users {
 
 
     @Column(nullable = false)
-    private int roles;
+    private int roles=1;
 
-    @Column(name = "creationdate")
-    private String creationdate;
+    @Basic(optional = false)
+    @Column(name = "creationdate", insertable = false, updatable = false,columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date creationdate;
 
     @Column(name="status")
-    private int status;
+    private int status=1;
 
+    public Date getCreationdate() {
+        return creationdate;
+    }
+
+    public void setCreationdate(Date creationdate) {
+        this.creationdate = creationdate;
+    }
 
     public long getId() {
         return id;
@@ -76,13 +85,6 @@ public class Users {
         this.roles = roles;
     }
 
-    public String getCreationdate() {
-        return creationdate;
-    }
-
-    public void setCreationdate(String creationdate) {
-        this.creationdate = creationdate;
-    }
 
     public int getStatus() {
         return status;
