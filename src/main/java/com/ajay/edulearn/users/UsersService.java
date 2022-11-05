@@ -7,5 +7,5 @@ public interface UsersService {
     Users saveUsers(Users users);
     List<Users> getAllUsers();
 
-    ApiResponse login(LoginRequest loginRequest);
+    ApiResponse login(LoginRequest loginRequest) throws UserNotFoundException;
 }

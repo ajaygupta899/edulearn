@@ -26,10 +26,10 @@ public  class userServiceImpl implements UsersService {
 
 
    @Override
-    public ApiResponse login(LoginRequest loginRequest){
+    public ApiResponse login(LoginRequest loginRequest) throws UserNotFoundException {
         Users users=usersRepo.findByEmail(loginRequest.getEmail());
         if(users==null){
-            throw new RuntimeException("user not exist");
+            throw new UserNotFoundException("user not exist");
         }
         if(!users.getPassword().equals((loginRequest.getPassword()))){
             throw new RuntimeException("password not exist");
