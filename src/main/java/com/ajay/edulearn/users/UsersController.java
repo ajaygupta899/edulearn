@@ -30,7 +30,7 @@ public class UsersController {
 }
 
     @PostMapping("/signin")
-    public ApiResponse login(@RequestBody LoginRequest loginRequest){
+    public ApiResponse login(@RequestBody LoginRequest loginRequest) throws UserNotFoundException {
     return usersService.login(loginRequest);
     }
 
