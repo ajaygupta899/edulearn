@@ -9,6 +9,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/users")
 public class UsersController {
     private UsersService usersService;
@@ -29,8 +30,8 @@ public class UsersController {
     return usersService.getAllUsers();
 }
 
-    @PostMapping("/signin")
-    public ApiResponse login(@RequestBody LoginRequest loginRequest) throws UserNotFoundException {
+    @PostMapping("/login")
+    public ApiResponse login(@RequestBody LoginRequest loginRequest)  {
     return usersService.login(loginRequest);
     }
 
