@@ -33,9 +33,7 @@ public class exam {
     @Column(nullable = false)
     private Long user_id;
 
-///////////gettt //////////
 
-/////////////////////////
     public Long getId() {
         return id;
     }
