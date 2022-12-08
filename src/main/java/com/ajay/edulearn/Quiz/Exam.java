@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "exam")
-public class exam {
+public class Exam {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,11 +27,11 @@ public class exam {
     @Column(nullable = false)
     private String exam_pass_marks;
 
-    @Column(nullable = false)
+    @Column
     private Long subject_id;
 
-    @Column(nullable = false)
-    private Long user_id;
+    @Column
+    private Long userid;
 
 
     public Long getId() {
@@ -90,11 +90,11 @@ public class exam {
         this.subject_id = subject_id;
     }
 
-    public Long getUser_id() {
-        return user_id;
+    public Long getUserid() {
+        return userid;
     }
 
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setUserid(Long userid) {
+        this.userid = userid;
     }
 }
