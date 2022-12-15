@@ -7,19 +7,13 @@ import javax.persistence.*;
 @Entity
 @Data
 @Table(name = "mcq_ques")
-public class mcq_ques {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class McqQues {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String mlanguage;
-
-    @Column(nullable = false)
-    private String ans;
-
-    @Column(nullable = false)
-    private String mquestion;
+    private String question;
 
     @Column(nullable = false)
     private String option1;
@@ -33,9 +27,14 @@ public class mcq_ques {
     @Column(nullable = false)
     private String option4;
 
+    @Column(nullable = false)
+    private int answer;
 
     @Column(nullable = false)
-    private Long question_id;
+    private String hint;
+
+    @Column(nullable = false)
+    private Long questionid;
 
     public Long getId() {
         return id;
@@ -45,28 +44,12 @@ public class mcq_ques {
         this.id = id;
     }
 
-    public String getMlanguage() {
-        return mlanguage;
+    public String getQuestion() {
+        return question;
     }
 
-    public void setMlanguage(String mlanguage) {
-        this.mlanguage = mlanguage;
-    }
-
-    public String getAns() {
-        return ans;
-    }
-
-    public void setAns(String ans) {
-        this.ans = ans;
-    }
-
-    public String getMquestion() {
-        return mquestion;
-    }
-
-    public void setMquestion(String mquestion) {
-        this.mquestion = mquestion;
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
     public String getOption1() {
@@ -101,11 +84,27 @@ public class mcq_ques {
         this.option4 = option4;
     }
 
-    public Long getQuestion_id() {
-        return question_id;
+    public int getAnswer() {
+        return answer;
     }
 
-    public void setQuestion_id(Long question_id) {
-        this.question_id = question_id;
+    public void setAnswer(int answer) {
+        this.answer = answer;
+    }
+
+    public String getHint() {
+        return hint;
+    }
+
+    public void setHint(String hint) {
+        this.hint = hint;
+    }
+
+    public Long getQuestionid() {
+        return questionid;
+    }
+
+    public void setQuestionid(Long question_id) {
+        this.questionid = question_id;
     }
 }

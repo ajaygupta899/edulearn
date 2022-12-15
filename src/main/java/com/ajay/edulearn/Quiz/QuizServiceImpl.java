@@ -8,17 +8,17 @@ import java.util.Optional;
 
 
 @Service("ExamServiceImpl")
-public class ExamServiceImpl implements ExamService{
+public class QuizServiceImpl implements QuizService {
     @Autowired
-    private ExamRepo examRepo;
+    private QuizRepo quizRepo;
 
-    public ExamServiceImpl(ExamRepo examRepo){
-        this.examRepo=examRepo;
+    public QuizServiceImpl(QuizRepo quizRepo){
+        this.quizRepo = quizRepo;
     }
 
     @Override
     public Exam saveExam(Exam exam) {
-        return examRepo.save(exam);
+        return quizRepo.save(exam);
     }
 
     @Transactional(readOnly = true)
@@ -27,10 +27,8 @@ public class ExamServiceImpl implements ExamService{
             return null;
         }
         Optional<Exam> examOptional;
-          examOptional=examRepo.findExamByUserid(id).isPresent()? Optional.of(examRepo.findExamByUserid(id).get()) :null;
+          examOptional= quizRepo.findExamByUserid(id).isPresent()? Optional.of(quizRepo.findExamByUserid(id).get()) :null;
         return examOptional;
-          // Exam exams=examOptional.get();
-       // return exams;
 
     }
 

@@ -8,11 +8,16 @@ import javax.persistence.*;
 @Entity
 @Table(name = "subject")
 public class Subject {
-    @Column(nullable = false)
-    private String subject_name;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
+    private String subject_name;
+
+    @Column(nullable = false)
+    private Long byuser;
+
 
     public void setId(Long id) {
         this.id = id;
@@ -28,5 +33,13 @@ public class Subject {
 
     public void setSubject_name(String subject_name) {
         this.subject_name = subject_name;
+    }
+
+    public Long getByuser() {
+        return byuser;
+    }
+
+    public void setByuser(Long byuser) {
+        this.byuser = byuser;
     }
 }
