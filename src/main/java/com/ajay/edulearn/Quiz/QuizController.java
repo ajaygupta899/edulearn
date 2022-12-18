@@ -1,5 +1,6 @@
 package com.ajay.edulearn.Quiz;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -7,10 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+//@CrossOrigin(origins = "${orginurl}")
 
 @RestController
-@CrossOrigin(origins = "orginurl")
 @RequestMapping("/api/exam")
 public class QuizController {
     @Autowired
@@ -58,4 +58,14 @@ public class QuizController {
     public ResponseEntity<McqQues>saveMcq(@RequestBody McqQues questionBank){
         return new ResponseEntity<McqQues>(mcqServices.save(questionBank), HttpStatus.CREATED);
     }
+
+
+    @RequestMapping(value = "/mcq/questionid/saveall", method = RequestMethod.POST)
+    @ResponseBody
+    public List<McqQues> saveAllMcq(@RequestBody List<McqQues> studentList) {
+        List<McqQues> studentResponse = (List<McqQues>) mcqServices.saveAllMcq(studentList);
+        return studentResponse;
+    }
+
+
 }

@@ -9,7 +9,6 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "orginurl")
 @RequestMapping("/api/users")
 public class UsersController {
     private UsersService usersService;
