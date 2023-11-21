@@ -1,0 +1,21 @@
+.Td {
+  background: linear-gradient(
+    106.37deg,
+    #efdab7 29.63%,
+    #f3c0c6 51.55%,
+    #d6b4ef 90.85%
+  );
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Tg {
+  display: grid;
+  height: 96%;
+  width: 96%;
+  border-radius: 2rem;
+  background-color: var(--glass);
+  overflow: hidden;
+  grid-template-columns: 20rem auto 11rem;
+}
