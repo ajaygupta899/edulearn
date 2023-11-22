@@ -25,7 +25,10 @@ public class McqServiceImpl implements McqServices {
     public Optional<McqQues>findMcqQuesByQuestionid(Long id){
     return mcqRepo.findMcqQuesByQuestionid(id);
 }
-
+@Override
+        public List<McqQues> findAllMcqQuesByQuestionid(Long id){
+        return mcqRepo.findAllByQuestionid(id);
+}
     @Transactional
     public List<McqQues> saveAllMcq(List<McqQues> studentList) {
         List<McqQues>res=(List<McqQues>) mcqRepo.saveAll(studentList);

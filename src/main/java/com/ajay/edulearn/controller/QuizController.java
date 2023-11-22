@@ -40,6 +40,11 @@ public class QuizController {
     return exam;
     }
 
+    @GetMapping("/questionbank/all")
+    public List<QuestionBank>getAllQuestion(){
+          List<QuestionBank> qb=questionBankService.findAllQuestionBank();
+          return qb;
+    }
     @PostMapping("/questionbank/add")
     public ResponseEntity<QuestionBank>saveQuestionBank(@RequestBody QuestionBank questionBank){
         return new ResponseEntity<QuestionBank>(questionBankService.saveQuestionBank(questionBank), HttpStatus.CREATED);
@@ -53,8 +58,8 @@ public class QuizController {
 
     @RequestMapping(value = "/mcq/questionid/{id}",method = RequestMethod.GET)
     @ResponseBody
-    public Optional<McqQues> getMcqbyQuestionid(@PathVariable Long id){
-        Optional<McqQues> mcqQues=mcqServices.findMcqQuesByQuestionid(id);
+    public List<McqQues> getMcqbyQuestionid(@PathVariable Long id){
+        List<McqQues> mcqQues=mcqServices.findAllMcqQuesByQuestionid(id);
         return mcqQues;
 
     }

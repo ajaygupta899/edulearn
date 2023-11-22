@@ -10,7 +10,10 @@ import java.util.Optional;
 public interface McqServices {
      McqQues save(McqQues mcqQues);
      Optional<McqQues> findMcqQuesByQuestionid(Long id);
+//     Optional<McqQues>findAll
 
-//     Object saveAllMcq(List<McqQues> studentList);
+     List<McqQues> findAllMcqQuesByQuestionid(Long id);
+
+     //     Object saveAllMcq(List<McqQues> studentList);
      public List<McqQues> saveAllMcq(List<McqQues> studentList);
 }

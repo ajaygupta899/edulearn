@@ -6,6 +6,7 @@ import com.ajay.edulearn.service.QuestionBankService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 public class QuestionBankServiceImpl implements QuestionBankService {
@@ -19,6 +20,8 @@ public class QuestionBankServiceImpl implements QuestionBankService {
         return questionBankRepo.save(questionBank);
     }
 
+    @Override
+    public List<QuestionBank> findAllQuestionBank(){return  questionBankRepo.findAll();}
     @Override
     public Optional<QuestionBank> findQuestionBankByUserid(Long id) {
         if(id==null){
